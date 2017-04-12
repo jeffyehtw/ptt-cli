@@ -2,9 +2,9 @@
 > Automatically login script for ptt
 
 ### Goals
-[X] Automatically login
-[ ] Automatically post
-[ ] Automatically comment
+- [X] Automatically login
+- [ ] Automatically post
+- [ ] Automatically comment
 
 ### Requirement
 - Python3
