@@ -1,4 +1,5 @@
 #coding=utf-8
+import os
 import sys
 import time
 import json
@@ -6,6 +7,7 @@ import telnetlib
 
 # var
 HOST = 'ptt.cc'
+PATH = os.path.dirname(os.path.abspath(__file__))
 
 class PTT:
 	def __init__(self, var):
@@ -67,7 +69,7 @@ class PTT:
 		print('[Logout] Done')
 
 def load_config():
-	with open('config.json', 'r') as config_file:
+	with open(PATH + '/config.json', 'r') as config_file:
 		config = json.load(config_file)
 	return config
 		 
