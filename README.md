@@ -1,7 +1,31 @@
 # ptt-auto-login
+> Automatically login script for ptt
 
-## Installment
+### Goals
+[X] Automatically login
+[ ] Automatically post
+[ ] Automatically comment
 
-## Usage
+### Requirement
+- Python3
 
-## License
+### Guide
+- Clone the project
+    ```
+    git clone https://github.com/noname0930/ptt-auto-login.git
+    ```
+- Rename the ```config.json.example``` to ```config.json```
+- Edit your account and password in ```config.json```
+- Run script
+    ```
+    python3 ptt.py
+    ```
+
+### Usage
+- Daily login
+    ```
+    man crontab
+    ```
+
+### License
+MIT
