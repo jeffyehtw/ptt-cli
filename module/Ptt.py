@@ -25,6 +25,7 @@ class Object:
 		time.sleep(5)
 
 	def login(self):
+		print('[%10s] %s' % ('Login', self.account))
 		# check login
 		reponse = self.telnet.read_very_eager().decode('big5','ignore')
 		
@@ -68,6 +69,7 @@ class Object:
 			print('[%10s] %s' % ('Error', 'Ptt.login()'))
 
 	def logout(self) :
+		print('[%10s] %s' % ('Logout', self.account))
 		self.telnet.write('qg\r\ny\r\n'.encode('big5'))
 		time.sleep(5)
 		self.telnet.close()

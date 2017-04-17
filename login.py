@@ -23,7 +23,7 @@ if __name__=='__main__' :
 	try:
 		configs = load_config()
 	except:
-		print('Missing config file')
+		print('[%10s] %s' % ('Error', 'load_config()'))
 		exit()
 
 	# run script
@@ -31,4 +31,4 @@ if __name__=='__main__' :
 		ptt = Ptt.Object(i)
 		ptt.login()
 		ptt.logout()
-		time.sleep(10)
+		time.sleep(5)
