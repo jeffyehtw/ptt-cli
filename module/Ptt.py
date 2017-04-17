@@ -27,13 +27,13 @@ class Object:
 	def login(self):
 		print('[%10s] %s' % ('Login', self.account))
 		# check login
-		reponse = self.telnet.read_very_eager().decode('big5','ignore')
+		response = self.telnet.read_very_eager().decode('big5','ignore')
 		
-		if u'系統過載' in reponse :
+		if u'系統過載' in response :
 			print('[%10s] %s' % ('Login', 'System overload'))
 			exit()
 
-		if u'請輸入代號' in reponse:
+		if u'請輸入代號' in response:
 			print('[%10s] %s' % ('Login', 'Account'))
 			self.telnet.write((self.account + '\r\n').encode('big5'))
 			time.sleep(5)
@@ -41,29 +41,29 @@ class Object:
 			self.telnet.write((self.password + '\r\n').encode('big5'))
 			time.sleep(5)
 
-			reponse = self.telnet.read_very_eager().decode('big5','ignore')
+			response = self.telnet.read_very_eager().decode('big5','ignore')
 			
-			if u'密碼不對' in reponse:
+			if u'密碼不對' in response:
 				print('[%10s] %s' % ('Error', 'Wrong password'))
 				exit()
-				reponse = self.telnet.read_very_eager().decode('big5','ignore')
+				response = self.telnet.read_very_eager().decode('big5','ignore')
 			
-			if u'您想刪除其他重複登入' in reponse:
+			if u'您想刪除其他重複登入' in response:
 				print('[%10s] %s' % ('Login', 'Remove duplicated connection'))
 				self.telnet.write('y\r\n'.encode('big5'))
 				time.sleep(5)
-				reponse = self.telnet.read_very_eager().decode('big5','ignore')
+				response = self.telnet.read_very_eager().decode('big5','ignore')
 			
-			if u'請按任意鍵繼續' in reponse:
+			if u'請按任意鍵繼續' in response:
 				self.telnet.write('\r\n'.encode('big5'))
 				time.sleep(5)
-				reponse = self.telnet.read_very_eager().decode('big5','ignore')
+				response = self.telnet.read_very_eager().decode('big5','ignore')
 			
-			if u'您要刪除以上錯誤嘗試' in reponse:
+			if u'您要刪除以上錯誤嘗試' in response:
 				print('[%10s] %s' % ('Login', 'Clear error tries'))
 				self.telnet.write('y\r\n'.encode('big5'))
 				time.sleep(5)
-				reponse = self.telnet.read_very_eager().decode('big5','ignore')
+				response = self.telnet.read_very_eager().decode('big5','ignore')
 			print('[%10s] %s' % ('Login', 'Success'))
 		else:
 			print('[%10s] %s' % ('Error', 'Ptt.login()'))
@@ -93,9 +93,12 @@ class Object:
 		time.sleep(5)
 
 		# enter to continue
-		self.telnet.write('\r\n'.encode('big5'))
-		time.sleep(5)
-
+		response = self.telnet.read_very_eager().decode('big5','ignore')
+		print(response)
+		if u'請按任意鍵繼續' in response:
+			self.telnet.write('\r\n'.encode('big5'))
+			time.sleep(5)
+				
 		# ctrl+p
 		self.telnet.write('\x10'.encode('big5'))
 		time.sleep(5)
