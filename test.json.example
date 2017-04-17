@@ -1,0 +1,11 @@
+{
+	"board": "Test",
+	"screen": 1,
+	"category": 1,
+	"title": "Title",
+	"content": [
+		"Line 1",
+		"Line 2",
+		"Line 3"
+	]
+}
