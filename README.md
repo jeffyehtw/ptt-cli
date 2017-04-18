@@ -31,7 +31,7 @@
 - [X] Login
 - [X] Logout
 - [X] Post
-- [] Comment
+- [ ] Comment
 
 
 ### License
