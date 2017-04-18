@@ -94,7 +94,6 @@ class Object:
 
 		# enter to continue
 		response = self.telnet.read_very_eager().decode('big5','ignore')
-		print(response)
 		if u'請按任意鍵繼續' in response:
 			self.telnet.write('\r\n'.encode('big5'))
 			time.sleep(5)
