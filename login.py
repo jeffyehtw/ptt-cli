@@ -5,7 +5,7 @@ import time
 import json
 import telnetlib
 
-from module import Ptt
+from ptt import Ptt
 
 # constant
 PATH = os.path.dirname(os.path.abspath(__file__))

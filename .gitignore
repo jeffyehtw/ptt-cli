@@ -1,5 +1,5 @@
 # cache
-module/__pycache__/
+ptt/__pycache__/
 
 # config file
 *.json
