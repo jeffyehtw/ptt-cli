@@ -1,38 +1,32 @@
-# ptt-auto-script
-> Automatically script for ptt
+# ptt-cli
+> a command line tool for ptt
 
-### Requirement
-- Python3
+## Requirement
+- python3
 
-### Installment
-- Clone the project
+## Usage
+### login
+```
+python3 ptt.py login <account> <password>
+```
+### post
+- content from file
     ```
-    git clone https://github.com/noname0930/ptt-auto-script.git
-    cd ptt-auto-script
+    python3 ptt.py post <account> <password> -b <board> -a <article> -t <type> -f <file>
     ```
-- Rename the ```config.json.example``` to ```config.json```
-- Edit your account and password in ```config.json```
+- content from stdin
+    ```
+    python3 ptt.py post <account> <password> -b <board> -a <article> -t <type> -c <content>
+    ```
 
-### Usage
-- login.py
-    ```
-    python3 login.py
-    ```
-    
-- post.py
-    - Rename the ```post.json.example``` to ```post.json```
-    - Edit the content of post in ```post.json```
-    - Run script
-        ```
-        python3 post.py post.json
-        ```
-
-### Features
+## Features
 - [X] Login
 - [X] Logout
 - [X] Post
 - [ ] Comment
 
+## Version
+v1.0
 
-### License
+## License
 MIT

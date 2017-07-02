@@ -1,10 +1,4 @@
 #coding=utf-8
-import os
-import sys
-import time
-import json
-import telnetlib
-
 from ptt.cli import *
 from ptt.utils import Client
 
@@ -15,8 +9,6 @@ def main():
 	# var
 	args = parse_argv()
 	client = Client(args['account'], args['password'])
-
-	print(args)
 
 	if args['mode'] == 'login':
 		try:
