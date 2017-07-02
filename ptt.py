@@ -28,9 +28,11 @@ def main():
 		try:
 			# init
 			if args['file']:
-				with open(args, 'r') as file:
-					args['content'] = file.read()
+				with open(args['file'], 'r') as file:
+					args['content'] = ''.join(file.readlines())
 
+			args['content'] = args['content'].replace('\n', '\r\n')
+					
 			client.login()
 			client.post({
 				'board': args['board'],
@@ -39,6 +41,7 @@ def main():
 				'content': args['content']
 			})
 			client.logout()
+			
 		except Exception as e:
 			print(pattern_except.format(func=args['mode'], exception=str(e)))
 
