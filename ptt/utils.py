@@ -73,11 +73,9 @@ class Client:
 		# log
 		print(pattern_log.format(func='logout', content='success'))
 
-	def post(self, var):
-		# var
-		post = None
-
+	def post(self, var):		
 		# select board
+		print(pattern_log.format(func='post', content='select board'))
 		self.telnet.write('s'.encode('big5'))
 		time.sleep(3)
 		self.telnet.write((var['board'] + '\r\n').encode('big5'))
@@ -94,26 +92,29 @@ class Client:
 		time.sleep(3)
 
 		# category
+		print(pattern_log.format(func='post', content='select type'))
 		self.telnet.write((str(var['type']) + '\r\n').encode('big5'))
 		time.sleep(3)
 
-		# write title
-		self.telnet.write((var['title'] + '\r\n').encode('big5'))
-		time.sleep(3)
+		# write article
+		print(pattern_log.format(func='post', content='write article'))
+		self.telnet.write((var['article'] + '\r\n').encode('big5'))
+		time.sleep(1)
 
 		# write content
+		print(pattern_log.format(func='post', content='write content'))
 		for c in var['content']:
 			self.telnet.write((c).encode('big5'))
 			time.sleep(1)
 		self.telnet.write('\x18'.encode('big5'))
-		time.sleep(3)
+		time.sleep(1)
 
 		# save content
 		self.telnet.write('s\r\n'.encode('big5'))
-		time.sleep(3)
+		time.sleep(1)
 
 		# signature
 		self.telnet.write('0\r\n'.encode('big5'))
-		time.sleep(3)
+		time.sleep(1)
 
 		print(pattern_log.format(func='post', content='success'))

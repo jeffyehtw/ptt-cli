@@ -27,25 +27,21 @@ def parse_argv():
 
 	# login
 	parser_login = subparsers.add_parser('login')
-	parser_login.set_defaults(mode='login')
+	parser.set_defaults(mode='login')
 	parser_login.add_argument('account')
 	parser_login.add_argument('password')
 
 	# post
 	parser_post = subparsers.add_parser('post')
-	parser_login.set_defaults(mode='post')
+	parser.set_defaults(mode='post')
 	parser_post.add_argument('account')
 	parser_post.add_argument('password')
-	parser_post.add_argument('--board', required=True)
+	parser_post.add_argument('-b', '--board', required=True)
 	parser_post.add_argument('-t', '--type', required=True)
 	parser_post.add_argument('-a', '--article', required=True)
 	parser_post.add_argument('-c', '--content',default=' ')
 	parser_post.add_argument('-f', '--file')
 
 	results = parser.parse_args()
-	
-	return {
-		'account': results.account,
-		'password': results.password,
-		'mode': results.mode
-	}
+
+	return results.__dict__
