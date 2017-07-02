@@ -2,7 +2,7 @@ import argparse
 
 # constant
 __version__ = '1.0'
-__description__ = 'ptt-cli - a command line tool for ptt.cc'
+__description__ = 'ptt-bot - a bot for ptt.cc'
 __epilog__ = 'Report bugs to <cjyeh@cs.nctu.edu.tw>'
 
 def parse_argv():
@@ -26,55 +26,26 @@ def parse_argv():
 	)
 
 	# login
-	parser_login = subparsers.add_parser(
-		'login'
-	)
-	parser_login.add_argument(
-		'account'
-	)
-	parser_login.add_argument(
-		'password'
-	)
+	parser_login = subparsers.add_parser('login')
+	parser_login.set_defaults(mode='login')
+	parser_login.add_argument('account')
+	parser_login.add_argument('password')
 
 	# post
-	parser_post = subparsers.add_parser(
-		'post'
-	)
-	parser_post.add_argument(
-		'account'
-	)
-	parser_post.add_argument(
-		'password'
-	)
-	parser_post.add_argument(
-		'--board',
-		required=True
-	)
-	parser_post.add_argument(
-		'-t', '--type',
-		required=True
-	)
-	parser_post.add_argument(
-		'-a', '--article',
-		required=True
-	)
-	parser_post.add_argument(
-		'-c', '--content',
-		default=' '
-	)
-	parser_post.add_argument(
-		'-f', '--file'
-	)
+	parser_post = subparsers.add_parser('post')
+	parser_login.set_defaults(mode='post')
+	parser_post.add_argument('account')
+	parser_post.add_argument('password')
+	parser_post.add_argument('--board', required=True)
+	parser_post.add_argument('-t', '--type', required=True)
+	parser_post.add_argument('-a', '--article', required=True)
+	parser_post.add_argument('-c', '--content',default=' ')
+	parser_post.add_argument('-f', '--file')
 
 	results = parser.parse_args()
 	
 	return {
+		'account': results.account,
+		'password': results.password,
+		'mode': results.mode
 	}
-
-def main():
-	args = parse_argv()
-
-
-
-if __name__ == '__main__':
-	main()
