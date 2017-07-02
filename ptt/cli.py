@@ -2,7 +2,7 @@ import argparse
 
 # constant
 __version__ = '1.0'
-__description__ = 'ptt-bot - a bot for ptt.cc'
+__description__ = 'ptt-cli - a command line tool for ptt.cc'
 __epilog__ = 'Report bugs to <cjyeh@cs.nctu.edu.tw>'
 
 def parse_argv():
