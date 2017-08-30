@@ -8,9 +8,11 @@ pattern_except = '{func:>10} {exception}'
 def main():
 	# var
 	args = parse_argv()
+
+	print(args)
 	client = Client(args['account'], args['password'])
 
-	if args['mode'] == 'login':
+	if args['command'] == 'login':
 		try:
 			client.login()
 			client.logout()
