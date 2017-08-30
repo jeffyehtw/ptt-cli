@@ -8,8 +8,6 @@ pattern_except = '{func:>10} {exception}'
 def main():
 	# var
 	args = parse_argv()
-
-	print(args)
 	client = Client(args['account'], args['password'])
 
 	if args['command'] == 'login':
@@ -18,7 +16,7 @@ def main():
 			client.logout()
 		except Exception as e:
 			print(pattern_except.format(func=args['mode'], exception=str(e)))
-	elif args['mode'] == 'post':
+	elif args['command'] == 'post':
 		try:
 			# init
 			if args['file']:
