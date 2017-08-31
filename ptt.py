@@ -35,7 +35,7 @@ def main():
 			client.logout()
 			
 		except Exception as e:
-			print(pattern_except.format(func=args['mode'], exception=str(e)))
+			print(pattern_except.format(func=args['command'], exception=str(e)))
 
 if __name__ == '__main__':
 	main()

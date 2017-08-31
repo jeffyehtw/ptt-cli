@@ -3,3 +3,6 @@ ptt/__pycache__/
 
 # config file
 *.json
+
+# test file
+*.txt
