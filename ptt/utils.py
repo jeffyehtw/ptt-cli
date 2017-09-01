@@ -105,7 +105,7 @@ class Client:
 		print(pattern_log.format(func='post', content='write content'))
 		for c in var['content']:
 			self.telnet.write((c).encode('big5'))
-			time.sleep(1)
+			time.sleep(0.5)
 		self.telnet.write('\x18'.encode('big5'))
 		time.sleep(1)
 
